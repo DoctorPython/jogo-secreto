@@ -6,7 +6,7 @@ paragrafo.innerHTML = 'Escolha um número de 1 á 10';*/
 
 
 let listaNumeroSorteados = [];
-let numeroLimite = 50;
+let numeroLimite = 50;//Alterando o número limite
 let tentativas = 1;
 let numeroSecreto = gerarNumeroAleatorio();
 
@@ -16,7 +16,7 @@ exibirMensagemInicial();
 
 function exibirMensagemInicial(){
     exibirTextoNaTela('h1', 'Vamos iniciar o jogo');
-    exibirTextoNaTela('p', 'Digite um número de 1 a ' + numeroLimite);
+    exibirTextoNaTela('p', 'Digite um número de 1 a ' + numeroLimite);//Deixando dinamico a mensagem na tela
 
 }
 
@@ -63,14 +63,13 @@ function verificarBotao(){
 
 let chute = document.querySelector('input').value  //valida se a entrada de dados do cliente é true or false
 if (chute == numeroSecreto) {
-
     let palavraTentativa = tentativas > 1 ? 'tentativas' : 'tentativa';
     mensagemTentativa = `O número secreto é ${numeroSecreto}, Você acertou com ${tentativas} ${palavraTentativa}`;
-    exibirTextoNaTela('p', mensagemTentativa);
+    exibirTextoNaTela('p', mensagemTentativa);//Corrigido a palavra número secreto
     document.getElementById('reiniciar').removeAttribute('disabled'); //habilita o botão reiniciar
 } else {
     if (chute > numeroSecreto) {
-        exibirTextoNaTela('p','O número secreto é menor');
+        exibirTextoNaTela('p','O número secreto é menor');//Alterado a mensagem para melhor compreensão
         
     } else {
         exibirTextoNaTela('p','O número secreto é maior');
