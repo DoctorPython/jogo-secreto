@@ -6,7 +6,7 @@ paragrafo.innerHTML = 'Escolha um número de 1 á 10';*/
 
 
 let listaNumeroSorteados = [];
-let numeroLimite = 10;
+let numeroLimite = 50;
 let tentativas = 1;
 let numeroSecreto = gerarNumeroAleatorio();
 
@@ -16,7 +16,7 @@ exibirMensagemInicial();
 
 function exibirMensagemInicial(){
     exibirTextoNaTela('h1', 'Vamos iniciar o jogo');
-    exibirTextoNaTela('p', 'Digite um número de 1 a 50');
+    exibirTextoNaTela('p', 'Digite um número de 1 a ' + numeroLimite);
 
 }
 
@@ -25,7 +25,7 @@ function gerarNumeroAleatorio(){
     let quantidadeElementosLista = listaNumeroSorteados.length;
     if(quantidadeElementosLista == numeroLimite){
         listaNumeroSorteados = [];
-    } //includes verifica se tem o elemnto dentro da lista ou seja verifica se o n ja foi sorteado, caso sim, ele sorteia um novo numero
+    } //includes verifica se tem o elemento dentro da lista ou seja verifica se o n ja foi sorteado, caso sim, ele sorteia um novo numero
     if(listaNumeroSorteados.includes(numeroEscolhido)){ 
         return gerarNumeroAleatorio();
     }else{
@@ -65,15 +65,15 @@ let chute = document.querySelector('input').value  //valida se a entrada de dado
 if (chute == numeroSecreto) {
 
     let palavraTentativa = tentativas > 1 ? 'tentativas' : 'tentativa';
-    mensagemTentativa = `O número secrero é ${numeroSecreto}, Você acertou com ${tentativas} ${palavraTentativa}`;
+    mensagemTentativa = `O número secreto é ${numeroSecreto}, Você acertou com ${tentativas} ${palavraTentativa}`;
     exibirTextoNaTela('p', mensagemTentativa);
     document.getElementById('reiniciar').removeAttribute('disabled'); //habilita o botão reiniciar
 } else {
     if (chute > numeroSecreto) {
-        exibirTextoNaTela('p','O chute é maior que o número secreto');
+        exibirTextoNaTela('p','O número secreto é menor');
         
     } else {
-        exibirTextoNaTela('p','O chute é menor que o número secreto');
+        exibirTextoNaTela('p','O número secreto é maior');
 
     }
     tentativas++
